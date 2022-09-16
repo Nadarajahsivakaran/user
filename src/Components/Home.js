@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Card} from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Home = () => {
   const [users, setUsers] = useState([]);
-
-  console.log(users);
 
   useEffect(() => {
     fetch("https://reqres.in/api/users?page=1")
@@ -18,19 +16,19 @@ const Home = () => {
       <div className="row">
         {users.map((item, index) => {
           return (
-            <div className="col-4" style={{ padding:"20px" }}>
-            <Link to={`/view/${item.id}`}>
-              <Card style={{ width: "18rem"}}>
-                <Card.Img variant="top" src={item.avatar} />
-                <Card.Body>
-                  <Card.Title>Card Title</Card.Title>
-                  <Card.Text>
-                    {item.first_name}
-                    {item.email}
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </Link>
+            <div className="col-4 m-auto" style={{ padding: "20px" }}>
+              <Link to={`/view/${item.id}`}>
+                <Card style={{ width: "18rem" }}>
+                  <Card.Img variant="top" src={item.avatar} />
+                  <Card.Body>
+                    <Card.Title>Card Title</Card.Title>
+                    <Card.Text>
+                      {item.first_name}
+                      {item.email}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
+              </Link>
             </div>
           );
         })}

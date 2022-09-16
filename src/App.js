@@ -2,17 +2,17 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import View from "./Components/View";
+import Header from "./Components/Header";
 
 function App() {
   return (
-    <div className="App container">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/view/:id" element={<View />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+    <Header/>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/view/:id" element={<View />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
